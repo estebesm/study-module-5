@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>profile</title>
+</head>
+<body>
+    <section class="profile">
+        <div class="container">
+            <div class="title">
+                <a href="/" class="back-button">
+                    <svg width="15" height="21" viewBox="0 0 15 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.01514 10.6699L13.9878 16.9932L10.5869 20.7871L0.0424805 10.875L10.3477 0.159668L14.022 3.62891L7.01514 10.6699Z" fill="#B1B1B1"/>
+                    </svg>
+                </a>
+                <h1>
+                    Информация о книге
+                </h1>
+            </div>
+            <div class="content">
+                <div class="content__title">
+                    <h3 id="book__name">
+
+                    </h3>
+                    <p id="book__author">
+
+                    </p>
+                </div>
+                <div class="content__description">
+                    <ul>
+                        <li>
+                            <span class="type">
+                                Издательтсво:
+                            </span><span class="value" id="book__publishHouse">
+
+                            </span>
+                        </li>
+                        <li>
+                            <span class="type">
+                                Жанры:
+                            </span><span class="value" id="book__genres">
+                                Приключения, драма
+                            </span>
+                        </li>
+                        <li>
+                            <span class="type">
+                                Язык оригинала:
+                            </span><span class="value" id="book__originalLanguage">
+                                Английский
+                            </span>
+                        </li>
+                        <li>
+                            <span class="type">
+                                Кол-во страниц:
+                            </span><span class="value" id="book__pagesNumber">
+                                399
+                            </span>
+                        </li>
+                        <li>
+                            <span class="type">
+                                Год издания:
+                            </span><span class="value" id="book__publishYear">
+                                1997
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="button" class="edit-button">
+                    Редактировать
+                </button>
+                <button type="button" class="favorite" id="book__favoriteButton">
+                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.3762 2.5401C18.5386 0.825205 16.1258 -0.577889 13.3191 0.239024C11.9779 0.625491 10.8078 1.45428 9.99986 2.58999C9.19192 1.45428 8.02178 0.625491 6.68062 0.239024C3.86771 -0.565417 1.46111 0.825205 0.623483 2.5401C-0.55169 4.94095 -0.0641182 7.64113 2.0737 10.5658C3.74894 12.8544 6.14304 15.1742 9.61856 17.8681C9.72839 17.9536 9.86369 18 10.003 18C10.1423 18 10.2776 17.9536 10.3874 17.8681C13.8567 15.1804 16.257 12.8793 17.9323 10.5658C20.0638 7.64113 20.5514 4.94095 19.3762 2.5401Z" fill="#B1B1B1"/>
+                    </svg>
+                </button>
+                <button type="button" class="delete" id="book__deleteButton">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.1667 3.6H15.8333V1.6C15.8333 0.7175 15.0859 0 14.1667 0H5.83333C4.91406 0 4.16667 0.7175 4.16667 1.6V3.6H0.833333C0.372396 3.6 0 3.9575 0 4.4V5.2C0 5.31 0.09375 5.4 0.208333 5.4H1.78125L2.42448 18.475C2.46615 19.3275 3.20052 20 4.08854 20H15.9115C16.8021 20 17.5339 19.33 17.5755 18.475L18.2187 5.4H19.7917C19.9062 5.4 20 5.31 20 5.2V4.4C20 3.9575 19.6276 3.6 19.1667 3.6ZM13.9583 3.6H6.04167V1.8H13.9583V3.6Z" fill="#B1B1B1"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="modal__wrapper" id="edit-book__modal">
+            <div class="modal">
+                <div class="modal__content">
+                    <button type="button" class="close-button">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.67398 8.99998L0.836975 15.837L2.16297 17.163L8.99998 10.326L15.837 17.163L17.163 15.837L10.326 8.99998L17.163 2.16297L15.837 0.836975L8.99998 7.67398L2.16297 0.836975L0.836975 2.16297L7.67398 8.99998Z" fill="#222222"/>
+                        </svg>
+                    </button>
+                    <form id="edit-book">
+                        <label>
+                            <input name="name" type="text" placeholder="Название" class="required">
+                        </label>
+                        <label>
+                            <input name="author" type="text" placeholder="Автор" class="required">
+                        </label>
+                        <label>
+                            <input name="publishYear" type="number" placeholder="Дата публикации">
+                        </label>
+                        <label>
+                            <input name="publishHouse" type="text" placeholder="Издательство">
+                        </label>
+                        <label>
+                            <input name="pagesNumber" type="number" placeholder="Кол-во страниц">
+                        </label>
+                        <label>
+                            <input name="genres" type="text" placeholder="Жанр">
+                        </label>
+                        <label>
+                            <input name="originalLanguage" type="text" placeholder="Язык оригинала">
+                        </label>
+                        <input type="submit" class="submit" value="Редактировать книгу">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

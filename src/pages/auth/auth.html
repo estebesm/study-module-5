@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authorization</title>
+</head>
+<body>
+    <section class="auth">
+        <div class="auth-type">
+            <button class="switch-button" id="auth__switch-button__login">
+                Вход
+            </button>
+            <button class="switch-button active" id="auth__switch-button__sign-in">
+                Регистрация
+            </button>
+        </div>
+        <form id="login">
+            <label>
+                <input name="username" type="text" placeholder="Имя пользователя">
+            </label>
+            <label>
+                <input name="password" type="password" placeholder="Пароль">
+            </label>
+            <input type="submit" class="submit" value="Войти">
+        </form>
+        <form id="sign-in" class="active">
+            <label>
+                <input name="username" id="sign-in__username" type="text" placeholder="Имя пользователя">
+            </label>
+            <label>
+                <input name="password" id="sign-in__password" type="password" placeholder="Пароль">
+            </label>
+            <label>
+                <input type="password" id="sign-in__repeated-password" placeholder="Повторите пароль">
+            </label>
+            <label>
+                <input name="firstName" type="text" placeholder="Имя">
+            </label>
+            <label>
+                <input name="age" type="number" id="sign-in__age" placeholder="Возраст">
+            </label>
+            <input type="submit" class="submit" value="Регистрация">
+        </form>
+    </section>
+</body>
+</html>

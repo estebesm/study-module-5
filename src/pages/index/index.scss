@@ -1,0 +1,131 @@
+body{
+  background-color: #D4E1E5;
+  padding-bottom: 50px;
+}
+
+.header{
+  .container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 70px;
+    .logout{
+      margin-left: 20px;
+    }
+  }
+}
+
+.books{
+  .container{
+    h3{
+      text-align: center;
+      font-size: 32px;
+      padding: 20px 0 40px;
+    }
+    .list{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      .list__item{
+        background-color: white;
+        border-radius: 10px;
+        padding: 28px 32px;
+        a {
+          display: flex;
+          justify-content: space-between;
+        }
+        .book__info{
+          padding-right: 20px;
+          .title{
+            padding-bottom: 20px;
+          }
+        }
+        .book__actions{
+          button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 12px;
+            background-color: #EDEDED;
+            &.favorite {
+              &.active {
+                svg {
+                  path {
+                    fill: #EB434D;
+                  }
+                }
+              }
+            }
+            &.delete{
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    .add-book{
+      padding: 10px 78px;
+      border-radius: 12px;
+      background-color: #287F9A;
+      color: white;
+      margin: 40px auto;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .books{
+    .container{
+      .list{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .books{
+    .container{
+      .list{
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .books{
+    .container{
+      .list{
+        .list__item{
+          padding: 15px 20px;
+          a{
+            flex-direction: column;
+          }
+          .book__info{
+            padding-right: 0;
+          }
+          .book__actions{
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            button{
+              &.delete{
+                margin-top: 0;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+      .add-book{
+        padding: 10px 0;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+  }
+}
