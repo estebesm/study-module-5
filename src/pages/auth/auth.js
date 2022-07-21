@@ -48,12 +48,14 @@ signInForm.addEventListener('submit', (e) => {
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
     validateLoginForm(e)
-
 })
 
 function validateLoginForm(e){
     const inputs = document.querySelectorAll('#login input')
     const data = Object.fromEntries(new FormData(e.target).entries())
+    const submitButton = document.querySelector('#login .submit')
+
+    submitButton.disabled = true
     login(data)
         .then(res => {
             if(res.token){
@@ -79,10 +81,15 @@ function validateLoginForm(e){
                 })
             }
         })
+        .finally(() => {
+            submitButton.disabled = false
+        })
 
 }
 
 function validateSignInForm(e){
+    const submitButton = document.querySelector('#sign-in .submit')
+
     usernameInput.addEventListener('input', validateRequiredInput)
     passwordInput.addEventListener('input', validatePassword)
     repeatedPasswordInput.addEventListener('input', validatePassword)
@@ -97,12 +104,16 @@ function validateSignInForm(e){
     })
     if(!error){
         const data = Object.fromEntries(new FormData(e.target).entries())
+        submitButton.disabled = true
         signIn(data)
             .then(res => {
                 if(res.token){
                     setToken(res.token)
                     window.location.href = '/'
                 }
+            })
+            .finally(() => {
+                submitButton.disabled = false
             })
     }
 }

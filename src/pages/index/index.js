@@ -13,6 +13,8 @@ const bookList = document.getElementById('main__book-list')
 
 const addBookForm = document.getElementById('add-book')
 
+const loadingElement = document.getElementById('loading__message')
+
 const requiredInputs = document.querySelectorAll('.required')
 
 closeModalButton.addEventListener('click', closeModal)
@@ -99,6 +101,9 @@ getBooks()
                     button.closest('li').style.display = 'block'
                 })
         }))
+    })
+    .finally(() => {
+        loadingElement.style.display = 'none'
     })
 
 

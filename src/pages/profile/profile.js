@@ -2,7 +2,7 @@ import '../../styles/style.scss'
 import '../../styles/components.scss'
 import './profile.scss'
 import {getToken} from "../../functions/localstorage";
-import {createBook, deleteBook, editBook, getBook, setFavorite} from "../../functions/api";
+import {deleteBook, editBook, getBook, setFavorite} from "../../functions/api";
 
 const bookNameElem = document.getElementById('book__name')
 const bookAuthorElem = document.getElementById('book__author')
@@ -13,6 +13,16 @@ const bookGenresElem = document.getElementById('book__genres')
 const bookLanguageElem = document.getElementById('book__originalLanguage')
 const bookFavoriteButton = document.getElementById('book__favoriteButton')
 const bookDeleteButton = document.getElementById('book__deleteButton')
+
+const bookProfileElement = {
+    name: bookNameElem,
+    author: bookAuthorElem,
+    publishHouse: bookPublishHouseElem,
+    publishYear: bookPublishYearElem,
+    pagesNumber: bookPagesNumberElem,
+    originalLanguage: bookLanguageElem,
+    genres: bookGenresElem
+}
 
 const editBookForm = document.getElementById('edit-book')
 
@@ -36,13 +46,15 @@ const bookId = params.id
 
 getBook(bookId)
     .then(res => {
-        bookNameElem.textContent = res.name
-        bookAuthorElem.textContent = res.author
-        bookPublishHouseElem.textContent = res.publishHouse || 'пусто'
-        bookPublishYearElem.textContent = res.publishYear || 'пусто'
-        bookPagesNumberElem.textContent = res.pagesNumber || 'пусто'
-        bookLanguageElem.textContent = res.originalLanguage || 'пусто'
-        bookGenresElem.textContent = res.genres.join(' ,') || 'пусто'
+        for(let prop in bookProfileElement){
+            if(prop === 'genres'){
+                bookProfileElement[prop].textContent = res[prop].join(' ,') || 'пусто'
+                editBookForm.elements[prop].value = res[prop].join(' ,')
+            }
+            bookProfileElement[prop].textContent = res[prop] || 'пусто'
+            editBookForm.elements[prop].value = res[prop]
+        }
+
         if(res.isFavorite){
             bookFavoriteButton.classList.add('active')
         } else{

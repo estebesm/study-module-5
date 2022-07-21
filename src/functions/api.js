@@ -99,6 +99,7 @@ export const editBook = async (id, data) => {
         pagesNumber: +data.pagesNumber,
         publishYear: +data.publishYear
     }
+
     const res = await fetch(`${API_URL}/books/update/${id}`, {
         method: 'PUT',
         headers: {

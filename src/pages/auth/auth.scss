@@ -87,6 +87,9 @@ body{
       border: none;
       border-radius: 5px;
       color: white;
+      &:disabled{
+        background-color: lightgray;
+      }
     }
   }
 }
