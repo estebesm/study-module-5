@@ -110,3 +110,13 @@ export const editBook = async (id, data) => {
     })
     return await res.json()
 }
+
+export const getUser = async () => {
+    const res = await fetch(`${API_URL}/me`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Auth': getToken()
+        },
+    })
+    return await res.json()
+}

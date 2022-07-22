@@ -2,7 +2,7 @@ import '../../styles/style.scss'
 import '../../styles/components.scss'
 import './index.scss'
 import {getToken} from "../../functions/localstorage";
-import {createBook, deleteBook, getBooks, logout, setFavorite} from "../../functions/api";
+import {createBook, deleteBook, getBooks, getUser, logout, setFavorite} from "../../functions/api";
 
 const modal = document.getElementById('main__add-book__modal')
 const closeModalButton = document.getElementById('main__add-book__modal__close')
@@ -16,6 +16,8 @@ const addBookForm = document.getElementById('add-book')
 const loadingElement = document.getElementById('loading__message')
 
 const requiredInputs = document.querySelectorAll('.required')
+
+const usernameElem = document.getElementById('username')
 
 closeModalButton.addEventListener('click', closeModal)
 openModalButton.addEventListener('click', openModal)
@@ -36,6 +38,11 @@ function closeModal(){
     modal.classList.remove('active')
 }
 
+
+getUser()
+    .then(res => {
+        usernameElem.textContent = res.username
+    })
 
 getBooks()
     .then(res => {
